@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Six Month Anniversary!!!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #fff;
+      color: #ee9ca7;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffd6e0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tanyaradzwa Chitaka ❤️'s  Brian Muriri</h1>
+  <p>Happy six months anniversary baby!
+  I chose this song cause I know you love Yatta Bandz<br> 
+  and also this is my favourite song by him<br>
+  Its slowed down cause i love songs slowed lol<br>
+  My favourite part is "And I give you the rest of me only the best of me promise<br> 
+  to do what I can". This is my first time creating a website out of school<br>
+  ngl I enjoyed making this but damn its not much just a little something sweet <br>
+  for the boy I love the most!!!</p>
+  <button onclick="toggleMusic()">🎵 Play / Pause Music</button><br>
+  <button onclick="window.location.href='new 1_0.html'">Enter Our Story ➡</button>
+
+  
+  <audio id="bgMusic" loop>
+    <source src="C:\Users\Tanya\OneDrive - Richfield Graduate Institute of Technology\Desktop\Yatta Bandz.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+
+</body>
+</html>

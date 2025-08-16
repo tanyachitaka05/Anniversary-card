@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #ffe6f0;
+      padding: 30px;
+    }
+    h1 { font-size: 2.5rem; }
+    .question { margin: 20px 0; }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #ff99c8;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover { background: #ff5da2; }
+    #result { font-size: 1.2rem; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>💕A little Quiz Game 💕</h1>
+  <div id="quiz"></div>
+  <p id="result"></p>
+  <a href="new 1_0.html">⬅ Back</a>
+
+  <script>
+    const quizData = [
+      { question: "When is our anniversary?", 
+        options: ["28 February", "11 April", "16 March"], 
+        answer: "28 February" },
+      { question: "What month did we have our first kiss?", 
+        options: ["December", "April", "February"], 
+        answer: "April" },
+      { question: "What do I call you most often?", 
+        options: ["My Love", "Baby", "Brian","All the above"], 
+        answer: "All the above" }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    const quizEl = document.getElementById("quiz");
+    const resultEl = document.getElementById("result");
+
+    function loadQuestion() {
+      if (currentQ < quizData.length) {
+        const q = quizData[currentQ];
+        quizEl.innerHTML = `
+          <div class="question">
+            <h3>${q.question}</h3>
+            ${q.options.map(opt => 
+              `<button onclick="checkAnswer('${opt}')">${opt}</button>`
+            ).join('')}
+          </div>
+        `;
+      } else {
+        quizEl.innerHTML = `<h2>You scored ${score}/${quizData.length} 💖</h2>`;
+        if (score === quizData.length) {
+          resultEl.innerText = "Perfect! You really are my soulmate weirdo 💕";
+        } else {
+          resultEl.innerText = "Not bad! But you still have more to learn about us 😏";
+        }
+      }
+    }
+
+    function checkAnswer(option) {
+      const q = quizData[currentQ];
+      if (option === q.answer) {
+        resultEl.innerText = "💖 Correct!";
+        score++;
+      } else {
+        resultEl.innerText = "😏 Nope, try again dummy!";
+      }
+      currentQ++;
+      setTimeout(loadQuestion, 1000);
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
